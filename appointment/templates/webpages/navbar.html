@@ -1,0 +1,35 @@
+{% load static %}
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <a href="#" class="navbar-brand">Brand<b>Name</b></a>  		
+    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+    <!-- Collection of nav links, forms, and other content for toggling -->
+    <div id="navbarCollapse" class="collapse navbar-collapse justify-content-start">
+        <div class="navbar-nav">
+            <a href="#" class="nav-item nav-link">Home</a>
+            <a href="#" class="nav-item nav-link">About</a>			
+            <a href="#" class="nav-item nav-link">Pricing</a>
+            <a href="#" class="nav-item nav-link">Blog</a>
+            <a href="#" class="nav-item nav-link">Contact</a>
+        </div>
+        <form class="navbar-form form-inline">
+            <div class="input-group search-box">								
+                <input type="text" id="search" class="form-control" placeholder="Search here...">
+                <div class="input-group-append">
+                    <span class="input-group-text">
+                        <i class="material-icons">&#xE8B6;</i>
+                    </span>
+                </div>
+            </div>
+        </form>
+       
+        </div>
+        {% if user.is_authenticated %}
+        <a class="btn btn-accent mr-3" href="{% url 'dashboard' %}">Dashboard</a>
+        <a class="btn btn-accent " href="{% url 'logout' %}">Log Out</a>
+        {% else %}
+        <a class="btn btn-accent mr-3" href="{% url 'login' %}">Signin</a>
+        <a class="btn btn-accent " href="{% url 'register' %}">SignUp</a>
+        {% endif %}
+    </nav>
